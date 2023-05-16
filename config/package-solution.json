@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "cz-quick-links-client-side-solution",
+    "id": "09cbaae7-aabb-4460-83fd-0e9c05980796",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "CZ-Quick-Links description"
+      },
+      "longDescription": {
+        "default": "CZ-Quick-Links description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "cz-quick-links Feature",
+        "description": "The feature that activates elements of the cz-quick-links solution.",
+        "id": "ae11096a-c981-4016-a430-7ae4c464a271",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/cz-quick-links.sppkg"
+  }
+}
