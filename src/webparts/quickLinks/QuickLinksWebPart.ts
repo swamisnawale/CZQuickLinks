@@ -3,6 +3,7 @@ import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
 import {
   IPropertyPaneConfiguration,
+  PropertyPaneDropdown,
   PropertyPaneTextField,
 } from "@microsoft/sp-property-pane";
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
@@ -16,6 +17,7 @@ export interface IQuickLinksWebPartProps {
   listName: string;
   emptyMessage: string;
   componentTitle: string;
+  numberOfColumsToShow: any;
 }
 
 export default class QuickLinksWebPart extends BaseClientSideWebPart<IQuickLinksWebPartProps> {
@@ -27,6 +29,7 @@ export default class QuickLinksWebPart extends BaseClientSideWebPart<IQuickLinks
         listName: this.properties.listName,
         emptyMessage: this.properties.emptyMessage,
         componentTitle: this.properties.componentTitle,
+        numberOfColumsToShow: this.properties.numberOfColumsToShow,
       }
     );
 
@@ -126,6 +129,37 @@ export default class QuickLinksWebPart extends BaseClientSideWebPart<IQuickLinks
 
                 PropertyPaneTextField("emptyMessage", {
                   label: "Text, If no data available",
+                }),
+
+                PropertyPaneDropdown("numberOfColumsToShow", {
+                  label: "Number of colums to show",
+
+                  options: [
+                    {
+                      key: "1",
+
+                      text: "1 Columns",
+                    },
+
+                    {
+                      key: "2",
+
+                      text: "2 Columns",
+                    },
+
+                    {
+                      key: "3",
+
+                      text: "3 Columns",
+                    },
+                    {
+                      key: "4",
+
+                      text: "4 Columns",
+                    },
+                  ],
+
+                  selectedKey: "4",
                 }),
               ],
             },

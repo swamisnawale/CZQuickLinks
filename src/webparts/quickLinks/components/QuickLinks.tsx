@@ -54,11 +54,28 @@ export default class QuickLinks extends React.Component<
       });
   };
   public render(): React.ReactElement<IQuickLinksProps> {
+    let selectedNumberOfColumns = parseInt(this.props.numberOfColumsToShow);
+
+    let columnWidth: any;
+
+    if (selectedNumberOfColumns == 4) {
+      columnWidth = "23%";
+    } else if (selectedNumberOfColumns == 3) {
+      columnWidth = "32%";
+    } else if (selectedNumberOfColumns == 2) {
+      columnWidth = "48%";
+    } else {
+      columnWidth = "100%";
+    }
+
     return (
       <div className={styles["cz-quick-links"]}>
+        <p>{selectedNumberOfColumns}</p>
         {/* Component title */}
         <div>
-          <p>{this.props.componentTitle}</p>
+          <p className={styles["component-title"]}>
+            {this.props.componentTitle}
+          </p>
         </div>
 
         {/* Empty Message */}
@@ -69,20 +86,31 @@ export default class QuickLinks extends React.Component<
         </div>
 
         {/* Data */}
-        {this.state.AllLinks.map((link) => {
-          return (
-            <div>
-              <p
+        <div className={styles["all-links-container"]}>
+          {this.state.AllLinks.map((link) => {
+            return (
+              <div
+                className={styles["quick-link-card"]}
                 onClick={() => {
                   window.open(link.RedirectURL.Url, "_blank");
                 }}
+                style={{ width: columnWidth }}
               >
-                {link.Title}
-              </p>
-              <p>{link.Order0}</p>
-            </div>
-          );
-        })}
+                <img
+                  src={
+                    link.LinkImage == null
+                      ? require("./Images/help.png")
+                      : window.location.origin +
+                        JSON.parse(link.LinkImage).serverRelativeUrl
+                  }
+                  alt=""
+                  className={styles["quick-link-image"]}
+                />
+                <p>{link.Title}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

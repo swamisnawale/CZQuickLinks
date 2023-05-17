@@ -5,4 +5,6 @@ export interface IQuickLinksProps {
   listName: string;
   emptyMessage: string;
   componentTitle: string;
+
+  numberOfColumsToShow: any;
 }
