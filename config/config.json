@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/quickLinks/QuickLinksWebPart.manifest.json"
         }
       ]
+    },
+    "news-webpart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/newsWebpart/NewsWebpartWebPart.js",
+          "manifest": "./src/webparts/newsWebpart/NewsWebpartWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js"
+    "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js",
+    "NewsWebpartWebPartStrings": "lib/webparts/newsWebpart/loc/{locale}.js"
   }
 }
